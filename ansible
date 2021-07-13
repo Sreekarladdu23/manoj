@@ -1,0 +1,15 @@
+---
+- name: creating  httpd
+   hosts: all
+   gather_fact: no
+   become: true
+   tasks:
+    - name: instal httpd
+      yum:
+         name: httpd
+         state: latest
+
+    - name: service start
+      service:
+          name: httpd
+          state: started
